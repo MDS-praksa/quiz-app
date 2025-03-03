@@ -1,0 +1,115 @@
+$themes: (
+  blue: (
+    primary: #3498db,
+    secondary: #2980b9,
+    text: #333333,
+    background: #f5f9fc,
+    accent: #1abc9c,
+    card-bg: #ffffff
+  ),
+  purple: (
+    primary: #9b59b6,
+    secondary: #8e44ad,
+    text: #333333,
+    background: #f8f4fc,
+    accent: #3498db,
+    card-bg: #ffffff
+  ),
+  green: (
+    primary: #2ecc71,
+    secondary: #27ae60,
+    text: #333333,
+    background: #f4fcf7,
+    accent: #e67e22,
+    card-bg: #ffffff
+  ),
+  orange: (
+    primary: #e67e22,
+    secondary: #d35400,
+    text: #333333,
+    background: #fdf7f2,
+    accent: #3498db,
+    card-bg: #ffffff
+  ),
+  red: (
+    primary: #e74c3c,
+    secondary: #c0392b,
+    text: #333333,
+    background: #fdf4f4,
+    accent: #f1c40f,
+    card-bg: #ffffff
+  ),
+  dark: (
+    primary: #34495e,
+    secondary: #2c3e50,
+    text: #ecf0f1,
+    background: #1a1a1a,
+    accent: #e74c3c,
+    card-bg: #2c2c2c
+  )
+);
+
+$current-theme: 'blue' !default;
+
+@function theme-color($key) {
+  $theme-map: map-get($themes, $current-theme);
+  @if $theme-map {
+    @return map-get($theme-map, $key);
+  }
+  @return null;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: theme-color('background');
+  color: theme-color('text');
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@import 'components';
+@import 'layout';
+@import 'animations';
+@import 'themes'; 

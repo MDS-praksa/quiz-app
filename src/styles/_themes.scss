@@ -1,0 +1,128 @@
+@each $theme-name, $theme-colors in $themes {
+  .theme-#{$theme-name} {
+    $current-theme: $theme-name !global;
+    
+    background-color: map-get($theme-colors, 'background');
+    color: map-get($theme-colors, 'text');
+    
+    .theme-selector-option.#{$theme-name} {
+      background-color: map-get($theme-colors, 'primary');
+    }
+    
+    .logo {
+      color: map-get($theme-colors, 'primary');
+      
+      span {
+        color: map-get($theme-colors, 'accent');
+      }
+    }
+    
+    .btn-primary {
+      background-color: map-get($theme-colors, 'primary');
+      
+      &:hover {
+        background-color: map-get($theme-colors, 'secondary');
+      }
+    }
+    
+    .btn-secondary {
+      color: map-get($theme-colors, 'primary');
+      border-color: map-get($theme-colors, 'primary');
+      
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    }
+    
+    .btn-accent {
+      background-color: map-get($theme-colors, 'accent');
+      
+      &:hover {
+        background-color: #e67e22;
+      }
+    }
+    
+    .card {
+      background-color: map-get($theme-colors, 'card-bg');
+      
+      &-header h2 {
+        color: map-get($theme-colors, 'primary');
+      }
+    }
+    
+    .quiz-option {
+      &:hover {
+        border-color: map-get($theme-colors, 'primary');
+      }
+      
+      &.selected {
+        border-color: map-get($theme-colors, 'primary');
+        background-color: rgba(0, 0, 0, 0.05);
+        
+        &::before {
+          background-color: map-get($theme-colors, 'primary');
+        }
+      }
+    }
+    
+    .progress-bar-fill {
+      background-color: map-get($theme-colors, 'primary');
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      color: map-get($theme-colors, 'primary');
+    }
+    
+    a {
+      color: map-get($theme-colors, 'primary');
+      
+      &:hover {
+        color: map-get($theme-colors, 'secondary');
+      }
+    }
+    
+    .nav-link {
+      color: map-get($theme-colors, 'text');
+      
+      &:hover, &.active {
+        color: map-get($theme-colors, 'primary');
+      }
+    }
+    
+    .results-screen {
+      h2 {
+        color: map-get($theme-colors, 'primary');
+      }
+      
+      .score {
+        color: map-get($theme-colors, 'accent');
+      }
+    }
+  }
+}
+
+.theme-selector-option {
+  &.blue {
+    background-color: #3498db;
+  }
+  
+  &.purple {
+    background-color: #9b59b6;
+  }
+  
+  &.green {
+    background-color: #2ecc71;
+  }
+  
+  &.orange {
+    background-color: #e67e22;
+  }
+  
+  &.red {
+    background-color: #e74c3c;
+  }
+  
+  &.dark {
+    background-color: #34495e;
+  }
+} 
